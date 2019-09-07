@@ -35,6 +35,10 @@ func ParseExeData(raw string) ([]Module, error) {
 			continue
 		}
 
+		if strings.HasPrefix(row[1], "tulip/") || strings.HasPrefix(row[1], "../") {
+			continue
+		}
+
 		if len(row) == 3 {
 			// A row with 3 can occur if there is no hash data for the
 			// dependency.
